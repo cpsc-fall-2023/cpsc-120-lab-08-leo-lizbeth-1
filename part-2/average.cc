@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
     std::cerr << "error: you must supply at least one number\n";
     return 1;
   }
-  // TODO(LeoWrite a for-each loop to sum (add up) all of the command line
+  // TODO(Leo) Write a for-each loop to sum (add up) all of the command line
   // arguments.
   // Use a double or float type so that your program preserves fractional
   // values.
@@ -25,13 +25,13 @@ int main(int argc, char* argv[]) {
   // Each argument is a std::string. You will need to convert each string into
   // a number with the std::stod or std::stof function.
   double sum = 0.0;
-  for (size_t i = 1; i < arguments.size(); ++i) {
-    sum += std::stod(arguments.at(i));
+  for (const std::string& num: arguments) {
+    sum += std::stod(num);
   }
   // TODO(Leo) After the loop has finished summing the arguments, calculate the
   // average of the values. Recall that the average is the total value divided
   // by the number of values.
-  double average = sum / (arguments.size() - 1);
+  double average = sum / static_cast<double>(arguments.size() - 1);
   // TODO(Leo) Use cout to print out a message of the form
   // average = *AVERAGE*
   // on its own line.
