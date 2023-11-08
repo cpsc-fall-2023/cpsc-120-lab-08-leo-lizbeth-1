@@ -1,4 +1,4 @@
-// TLizbeth Flores
+// Lizbeth Flores
 // lizflores0905@csu.fullerton.edu
 // @lizzy0flor05
 // Partners: @Leo90944
@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
 
   // TODO(Leo) Validate that there is at least one command line argument.
   // If not, print an error message and return a non-zero value.
-  if (arguments.size() <= 1) {
+  if (arguments.size() == 1) {
     std::cerr << "error: you must supply at least one number\n";
     return 1;
   }
@@ -24,8 +24,9 @@ int main(int argc, char* argv[]) {
   // of the arguments vector.
   // Each argument is a std::string. You will need to convert each string into
   // a number with the std::stod or std::stof function.
-  double sum = 0.0;
-  for (const std::string& num: arguments) {
+  double sum{0.0};
+  for (const std::string& num :
+       std::vector<std::string>(arguments.begin() + 1, arguments.end())) {
     sum += std::stod(num);
   }
   // TODO(Leo) After the loop has finished summing the arguments, calculate the
